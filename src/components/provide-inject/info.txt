@@ -1,0 +1,20 @@
+- props and emits is vary usefull thing and mostly we use props and emits for direct
+parent and child communications and aslo for nested childs and parent communication
+
+
+- but when we deal with some complex and more nested parernt and child relations 
+and we want to pass some data from parent to child > child > child ...
+and from child to parent > parent > parent ... that time props and emits can we tricky and redundend so for that type of things we mostly use states for that to centrlize our data but many times for deling with such nested things but just want to pass some simple type of data we can use provide and inject insted of props and state 
+
+- ex we want to pass userNames from componentOne > componentTwo > componentThree
+and want to emit click form  componentThree > componentTwo > componentOne and 
+we are not using any of this prop and emits in componentTwo we when we use props and emit we have to pass them from componentTwo and all inbetween components wather we are using or not that porps and emits in inbetween component
+
+- to overcome that we can use provide and inject for taht. use provide and inject when you want to pass data and events from one component to others and there are many components inbetween where we not neeed this data and don't want to use states for simple type of things because provide and inject gives ablity to pass data from parent to all there childs so we can get parent's provided data in any of there children and we don't need to pass it to inbetween components
+
+- provide will use for providing data from parent provide can be {} of funcctin 
+wehen provide will {} we can define key value pairs which will be just simple data which won't be reactive like data property and when we use provide as function we can return object just like data property and we can reference our data, props, computed, methods etc to them and when they will change in parent new value will pass by provide to all components where we inject the provided data
+
+- in inject we just define [] and names of provided keys by parents and they will be avalable like prop
+
+- the thing is when we use provide and inject we are not documenting our components well because provide can be use in any of child components so we have to go and find useage of that in all components so it will be tricky so use mostly props and emits for communication and use provide and inject in special cases only 

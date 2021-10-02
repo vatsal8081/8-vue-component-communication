@@ -1,0 +1,25 @@
+1) friend component
+2) friend contact2 
+3) friend vonatct3
+4) provide-inject folder
+
+NOTE : 
+1) in props sometimes it happens that we want to pass props from object by one by one element 
+
+post: {
+  id: 1,
+  title: 'My Journey with Vue'
+}
+
+we want to pass id and title as props and name of props which child component is excepting is also same we can do it like this (long way) 
+
+<blog-post v-bind:id="post.id" v-bind:title="post.title"></blog-post>
+
+or by donig this 
+
+<blog-post v-bind="post"></blog-post>
+ by this way vue will spreade all elements of object and it will give them to child
+ so vue will translate ablove expression to longway by them self
+
+
+ 2) props are validated defore component instance is created so data, computed all will not be avalable in props
