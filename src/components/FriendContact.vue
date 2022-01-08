@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }}  {{ isFavrouteFriend }}</h2>
+    <h2>{{ name }} {{ isFavrouteFriend }}</h2>
     <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details</button>
     <button @click="toggleFavroute">Favroute</button>
     <ul v-if="detailsAreVisible">
@@ -41,8 +41,9 @@ export default {
       detailsAreVisible: false,
       isFavrouteFriend: this.isFavroute
       // hear we are just creating copy of the prop and chen we can change that copy but keep in mind
-      // 1) when we change that data property it will change for this data propewrty only it wont effect actual propvalue in both parent and child 
-      // 2) by doing this we are assignning initeal value of prop to data so when it will change in future our data property will not change it will stay same 3) when we are passing object as prop and using this way when we change data we are also mutating props value because objects are reference type so it's not good
+      // 1) when we change that data property it will change for this data propewrty only it wont effect actual prop value in both parent and child 
+      // 2) by doing this we are assignning initeal value of prop to data so when it will change in future our data property will not change it will stay same 
+      // 3) when we are passing object as prop and using this way when we change data we are also mutating props value because objects are reference type so it's not good
       // so this way of changing prop is vary uncommon and we use it only if we want to store initial value of prop and use it somewere otherwise we use events and spacilly don't use this in objects
     };
   },
@@ -51,7 +52,7 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
 
-    toggleFavroute(){
+    toggleFavroute() {
       this.isFavrouteFriend = !this.isFavrouteFriend
     }
   }

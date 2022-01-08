@@ -6,79 +6,64 @@
     <ul>
       <!-- 3 -->
       <!-- now you can pass props from parent just like you use attributes in 
-      html element -->
+      html element-->
       <friend-contact
-      name="vatsal"
-      phone-number="9104243444"
-      email="vatsalpatel8081@gmal.com"
-      isFavroute = "false"
+        name="vatsal"
+        phone-number="9104243444"
+        email="vatsalpatel8081@gmal.com"
+        isFavroute="false"
       ></friend-contact>
       <friend-contact
-      name="shivam"
-      phone-number="7172389867"
-      email="shivam@gmal.com"
-      isFavroute = "true"
+        name="shivam"
+        phone-number="7172389867"
+        email="shivam@gmal.com"
+        isFavroute="true"
       ></friend-contact>
 
       <!-- keep in mind you can also pass props name phoneNumber like this but 
-      in html we use cabab case both for component name and prop name because this is more common in html and vue will automaticall convert it as camel case -->
-      <!-- still many peouples same name in hear to get ease of writing and finding the code  -->
+      in html we use cabab case both for component name and prop name because this is more common in html and vue will automaticall convert it as camel case-->
+      <!-- still many peouples preferr same name in hear to get ease of writing and finding the code  -->
       <!-- the choice is yourse -->
-      <!-- component and props give use ablity to create parts which works standalone with it's own data and dynamic data like props -->
+      <!-- component and props give us ablity to create parts which works standalone with it's own data and dynamic data like props -->
       <!-- with this we can define our html and logic just once and can able to use that part with diffrent data in many parts of our app -->
-      <!-- and you can also use data binding : is props as well see bellow  isFavroute for that -->
+      <!-- and you can also use data binding : in props as well see bellow  isFavroute for that -->
 
-
-      <hr>
+      <hr />
+      <friend-contact-two name="vatsal" phone-number="9104243444" email="vatsalpatel8081@gmal.com"></friend-contact-two>
       <friend-contact-two
-      name="vatsal"
-      phone-number="9104243444"
-      email="vatsalpatel8081@gmal.com"
-      ></friend-contact-two>
-      <friend-contact-two
-      name="shivam"
-      phone-number="7172389867"
-      email="shivam@gmal.com"
-      :isFavroute = "true"
+        name="shivam"
+        phone-number="7172389867"
+        email="shivam@gmal.com"
+        :isFavroute="true"
       ></friend-contact-two>
 
-      <hr>
+      <hr />
       <friend-contact-three
-      v-for="friend in friends"
-      :key="friend.id"
-      :id="friend.id"
-      :name="friend.name"
-      :phoneNumber="friend.phoneNumber"
-      :email="friend.email"
-      :isFavroute="friend.isFavroute"
-      @toggle-fav="toggleFav"
-      >
-      </friend-contact-three>  
+        v-for="friend in friends"
+        :key="friend.id"
+        :id="friend.id"
+        :name="friend.name"
+        :phoneNumber="friend.phoneNumber"
+        :email="friend.email"
+        :isFavroute="friend.isFavroute"
+        @toggle-fav="toggleFav"
+      ></friend-contact-three>
 
-        <!-- 3 -->
-        <!-- now hear you can listern to that custome event which you define
+      <!-- 3 -->
+      <!-- now hear you can listern to that custome event which you define
         in your child component just like you do in event binding of other html
-        elements by @ and event name and giving callback method -->
-        <!-- hear good thing is whenever prop change in parent component vue automatically detact that change and then pass updated prop in child and also update new value and ui  -->
-
+      elements by @ and event name and giving callback method-->
+      <!-- hear good thing is whenever prop change in parent component vue automatically detact that change and then pass updated prop in child and also update new value and ui  -->
     </ul>
 
-    <hr>
+    <hr />
     <h2>Practic</h2>
-    <active-user 
-      :name="user.name"
-      :age="user.age"
-    ></active-user>
+    <active-user :name="user.name" :age="user.age"></active-user>
 
-    <user-data
-    @update-user="updateUser"
-    ></user-data>
-
+    <user-data @update-user="updateUser"></user-data>
 
     <!-- provide injecty -->
-    <component-one></component-one> 
-
-
+    <component-one></component-one>
   </section>
 </template>
 
@@ -98,20 +83,20 @@ export default {
       ],
 
       // practic
-      user: {name: "tmp", age: 10}
+      user: { name: "tmp", age: 10 }
     };
   },
 
-  methods:{
-    toggleFav(friendId){
-      let friend = this.friends.find((el)=> el.id === friendId)
+  methods: {
+    toggleFav(friendId) {
+      let friend = this.friends.find((el) => el.id === friendId)
       friend.isFavroute = !friend.isFavroute
     },
 
     // practic
-    updateUser(user){
+    updateUser(user) {
       this.user.name = user.name
-      this.user.age = Number(user.age) 
+      this.user.age = Number(user.age)
     }
   }
 };

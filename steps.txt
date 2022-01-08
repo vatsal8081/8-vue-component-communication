@@ -1,6 +1,6 @@
-1) friend component
+1) friend contact 
 2) friend contact2 
-3) friend vonatct3
+3) friend contact3
 4) provide-inject folder
 
 NOTE : 

@@ -21,7 +21,7 @@ app.component('friend-contact-three', FriendCantactThree);
 
 // practic
 app.component('active-user', ActiveUser);
-app.component('user-data',UserData)
+app.component('user-data', UserData)
 
 // provide inject
 app.component('component-one', ComponentOne);
